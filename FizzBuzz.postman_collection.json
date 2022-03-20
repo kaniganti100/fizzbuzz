@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "39bda342-fdc3-4164-90b4-6d6b9cc2c090",
+		"name": "FizzBuzz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Divisible_By_3_Only",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=3';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input a Non-Numeric value\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Divisible_By_5_only",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=5';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input a Non-Numeric value\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Divisible_By_3_And_5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=15';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input a Non-Numeric value\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-Numeric",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=A';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input a Non-Numeric value\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not-Divisible-By_3_and_5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=23';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input a Non-Numeric value\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empty_Input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let queryParams = '?values=';\r",
+							"pm.globals.set(\"queryParams\",queryParams);\r",
+							"\r",
+							"pm.test(\"Status test-200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status Json Output--json format\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisible by 3 - Fizz \", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.response.to.not.be.error;\r",
+							"    if(pm.request.values !== null){\r",
+							"        pm.expect(responseJson.Result).to.equal(\"Fizz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To validate for Divisble by 5 - buzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.equal(\"Buzz\");\r",
+							"});\r",
+							"pm.test(\"To validate for Divisble by 3&5 - FizzBuzz\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(pm.request.values !== null){\r",
+							"     pm.expect(resp.Result).to.equal(\"FizzBuzz\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To Input Empty values\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    if(typeof req !== undefined){\r",
+							"        pm.expect(resp.Result).to.equal(\"Invalid Item\");\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Not Divisible by 3 and 5\", function () {\r",
+							"    const resp = pm.response.json();\r",
+							"    pm.response.to.be.json;\r",
+							"    pm.expect(resp.Result).to.contains(\"Divided\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fizz{{queryParams}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fizz{{queryParams}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
